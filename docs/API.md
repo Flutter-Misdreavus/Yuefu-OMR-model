@@ -3,7 +3,6 @@
 ## 概述
 
 Legato OMR Service 是一个光学音乐识别 (Optical Music Recognition) API 服务，用于将乐谱图像转录为 ABC 音乐符号。
-原项目 https://github.com/guang-yng/legato
 
 **Base URL**: `http://localhost:8000`
 

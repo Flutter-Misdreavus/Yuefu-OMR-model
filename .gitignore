@@ -178,3 +178,6 @@ wandb/
 outputs/
 
 software/*
+
+# 杂项
+代码功能.md

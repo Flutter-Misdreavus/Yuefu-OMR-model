@@ -5,10 +5,19 @@ transformers==4.54.0
 torch==2.6.0
 pillow==11.1.0
 numpy==1.26.4
-deepspeed
+# deepspeed
 Levenshtein
 tqdm
 wandb
 pyparsing
 zss
-musicdiff @ git+ssh://git@github.com/guang-yng/efficient-musicdiff.git
+musicdiff @ git+https://github.com/guang-yng/efficient-musicdiff.git
+
+# FastAPI
+fastapi==0.115.0
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+pydantic==2.10.6
+pydantic-settings==2.7.1
+python-dotenv==1.0.1
+pyyaml==6.0.2
