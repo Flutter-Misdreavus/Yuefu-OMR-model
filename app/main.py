@@ -11,7 +11,7 @@ from app.routers import health, transcription
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """应用生命周期管理"""
-    # 预热模型 (加载一次模型到缓存)
+    # 预热模型 (加载模型到显存)
     from app.services.transcription import get_service
 
     try:
@@ -19,10 +19,18 @@ async def lifespan(app: FastAPI):
             model_path=settings.model.pretrained_model,
             device="cuda"
         )
-        # 预热: 加载默认模型 (fp16)
+        # 预热: 加载 fp16 模型到显存
+        print("Loading fp16 model...")
         service._load_model(fp16=True)
+        print("Fp16 model loaded")
+
+        # 预热: 加载 fp32 模型到显存
+        print("Loading fp32 model...")
+        service._load_model(fp16=False)
+        print("Fp32 model loaded")
+
         health._models_loaded = True
-        print(f"Model warmed up: {settings.model.pretrained_model}")
+        print(f"Both models warmed up: {settings.model.pretrained_model}")
     except Exception as e:
         print(f"Warning: Failed to warm up model: {e}")
         health._models_loaded = False
