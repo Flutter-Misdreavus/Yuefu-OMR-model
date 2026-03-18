@@ -26,7 +26,7 @@ COPY configs/ ./configs/
 COPY legato/ ./legato/
 
 # 暴露端口
-EXPOSE 8000
+EXPOSE 9000
 
 # 启动命令
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
