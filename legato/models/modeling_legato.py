@@ -64,7 +64,14 @@ class LegatoModel(MllamaForConditionalGeneration):
             logger.info(f"Loading vision encoder from {encoder_ref}")
             if 'config' in kwargs:
                 kwargs.pop('config')
-            model.model.vision_model = MllamaVisionModel.from_pretrained(encoder_ref, *model_args, **kwargs)
+
+            # Check if encoder_ref is a local path
+            if os.path.exists(encoder_ref):
+                # Use local path directly
+                model.model.vision_model = MllamaVisionModel.from_pretrained(encoder_ref, *model_args, **kwargs)
+            else:
+                # Try HuggingFace Hub
+                model.model.vision_model = MllamaVisionModel.from_pretrained(encoder_ref, *model_args, **kwargs)
             model.config.vision_config = model.vision_model.config
             for param in model.vision_model.parameters():
                 param.requires_grad = False
