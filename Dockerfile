@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
 # 复制依赖文件
 COPY requirements.txt .
 
+# 使用 pip 国内源（加速）
+RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 # 安装 Python 依赖
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -29,4 +31,4 @@ COPY legato/ ./legato/
 EXPOSE 9000
 
 # 启动命令
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "9000"]
