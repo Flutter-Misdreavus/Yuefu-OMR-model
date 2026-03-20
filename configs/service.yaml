@@ -2,10 +2,10 @@ service:
   name: legato-omr-service
   version: 1.0.0
   host: 0.0.0.0
-  port: 8000
+  port: 9000
 
 model:
-  pretrained_model: models/models--guangyangmusic--legato/snapshots/2d07c5d0e73186f2c0b12e35ea187bbc30dec18c
+  pretrained_model: /mnt/models/models/models--guangyangmusic--legato/snapshots/2d07c5d0e73186f2c0b12e35ea187bbc30dec18c
   default_beam_size: 10
   default_max_length: 2048
   default_fp16: true
