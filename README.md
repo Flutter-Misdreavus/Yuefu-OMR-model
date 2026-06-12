@@ -3,7 +3,8 @@
 具体的功能有:
 - 通过拍照或图片，智能识别五线谱，包括音高、拍号、速度、调号等元素
 - 根据所识别的乐谱，生成可视化钢琴键盘瀑布流 
-想要进一步了解乐府？请前往 [项目展示页面](https://github.com/Flutter-Misdreavus/yuefu-presentation)
+   
+想要进一步了解乐府？请前往 [项目展示页面](https://github.com/Flutter-Misdreavus/yuefu-presentation)  
 [乐府APP端](https://github.com/MitochondriaCN/Yuefu)
 
 # 关于此项目
